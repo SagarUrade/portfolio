@@ -1,0 +1,776 @@
+:root {
+  --bg-dark: #0f0f11;
+  --window-bg: #141416;
+  --border-muted: #242428;
+  --text-main: #b5babf;
+  --text-muted: #71767a;
+  --amber-gold: #ff9e3b;
+  --amber-dim: #cca67c;
+  --tab-inactive-bg: #1a1a1d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 15px;
+}
+
+.terminal-window {
+  width: 100%;
+  max-width: 1150px; /* Kept wide layout */
+  background-color: var(--window-bg);
+  border: 1px solid var(--border-muted);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+}
+
+/* Chrome Top Header Bar */
+.window-header {
+  background-color: #161619;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.window-buttons {
+  display: flex;
+  gap: 7px;
+  position: absolute;
+  left: 15px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.window-title {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Tab Selection Row */
+.terminal-tabs {
+  display: flex;
+  background-color: #111113;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-muted);
+  color: var(--text-muted);
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-main);
+  background-color: var(--tab-inactive-bg);
+}
+
+.tab-btn.active {
+  color: var(--amber-gold);
+  background-color: var(--window-bg);
+  border-bottom: 2px solid var(--amber-gold);
+}
+
+/* Internal Screen Scroll Area */
+.terminal-body {
+  padding: 35px;
+  height: 680px; /* Kept spacious height */
+  overflow-y: auto;
+}
+
+/* Tab Hide/Show Toggle Layer classes */
+.portfolio-section {
+  display: none;
+}
+.portfolio-section.active {
+  display: block;
+}
+
+/* Profile Card Area (~home / ~about) */
+.profile-card {
+  border: 1px solid #2d2d34;
+  border-radius: 6px;
+  padding: 25px;
+  margin-bottom: 25px;
+  background-color: #161619;
+}
+
+.profile-card:hover {
+  border-color: var(--amber-gold); /* Amber glow on hover */
+}
+
+.profile-header-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--amber-gold); /* Updated to gold */
+  border-radius: 50%; /* Smooth circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  flex-shrink: 0;
+  background-color: #1a1a1e;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  color: #81c784;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #4caf50;
+  border-radius: 50%;
+}
+
+.main-name {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.main-name span, .lastname-amber {
+  color: var(--amber-gold);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.bio-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #a4a9ad;
+  margin-bottom: 15px;
+}
+
+.meta-location {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Stylized Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-terminal {
+  background-color: transparent;
+  border: 1px solid #2c2c31;
+  color: var(--text-main);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.btn-terminal:hover {
+  border-color: var(--amber-gold);
+  color: var(--amber-gold);
+  background-color: #1e1e22;
+}
+
+/* Bottom Metrics Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dashboard-box {
+  border: 1px solid #202024;
+  border-radius: 6px;
+  padding: 20px;
+  background-color: #121214;
+  transition: border-color 0.2s ease;
+}
+
+.dashboard-box:hover {
+  border-color: #2d2d34;
+}
+
+.dashboard-box.full-width {
+  grid-column: span 2;
+}
+
+.box-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.stat-item h2 {
+  font-size: 1.8rem;
+  color: var(--amber-gold); /* Metric figures now pop with gold */
+  font-weight: 500;
+}
+
+.stat-item p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.skills-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.capsule {
+  background-color: #19191c;
+  border: 1px solid #28282d;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #9ba0a5;
+}
+
+.view-more-link {
+  font-size: 0.8rem;
+  color: var(--amber-gold);
+  text-decoration: none;
+}
+.view-more-link:hover {
+  text-decoration: underline;
+}
+
+/* Academic Section (~academic) */
+.cli-command-prefix {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.academic-card {
+  border: 1px solid #202024;
+  border-radius: 6px;
+  padding: 20px;
+  background-color: #121214;
+  margin-bottom: 15px;
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.academic-card:hover {
+  border-color: var(--amber-gold); /* Gold boundary focus */
+}
+
+.academic-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.edu-id {
+  font-size: 0.8rem;
+  color: var(--amber-gold); /* IDs highlighted clear amber */
+}
+
+.academic-header h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.edu-status {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--amber-gold); /* Status tracking matching image layout */
+}
+
+.edu-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Skills Block Container System (~skills) */
+.skills-group-box {
+  border: 1px solid #202024;
+  border-radius: 6px;
+  padding: 22px;
+  background-color: #121214;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.skills-group-box:hover {
+  border-color: #2d2d34;
+}
+
+.skills-group-label {
+  font-size: 0.85rem;
+  color: var(--amber-gold); /* Fixed syntax: handles headers as amber brackets */
+  font-family: inherit;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.skills-capsules-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag-node {
+  background-color: transparent;
+  border: 1px solid #2e2e33;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--text-main); /* Set text standard readable default */
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.skill-tag-node:hover {
+  border-color: var(--amber-gold);
+  color: var(--amber-gold);
+  background-color: #19191c;
+}
+
+/* Projects System (~projects) */
+.project-log-card {
+  border: 1px solid #1c1c1f;
+  border-radius: 6px;
+  padding: 22px;
+  background-color: #121214;
+  margin-bottom: 20px;
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.project-log-card.animate-border {
+  border-color: #38291e; /* Styled brown accent line from git reference layout */
+}
+
+.project-log-card:hover {
+  border-color: var(--amber-gold);
+}
+
+.project-log-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.proj-id {
+  font-size: 0.85rem;
+  color: var(--amber-gold); /* Subtags highlighted cleanly */
+}
+
+.project-log-header h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.proj-github-link {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: inherit;
+  transition: color 0.15s ease;
+}
+
+.proj-github-link:hover {
+  color: var(--amber-gold);
+}
+
+.proj-log-desc {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.proj-log-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-node-mini {
+  background-color: transparent;
+  border: 1px solid #232327;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #a4a9ad;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.tag-node-mini:hover {
+  border-color: var(--amber-gold);
+  color: var(--amber-gold);
+}
+
+/* Contact Module Panel (~contact) */
+.contact-hero-card {
+  border: 1px solid #1c1c1f;
+  border-radius: 6px;
+  padding: 30px;
+  background-color: #121214;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.comment-line {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 14px;
+}
+
+.contact-cta-title {
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-cta-title .amber-text {
+  color: var(--amber-gold);
+}
+
+.contact-cta-desc {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 25px;
+}
+
+.btn-terminal-cta {
+  background-color: transparent;
+  border: 1px solid var(--amber-gold);
+  color: var(--amber-gold);
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-family: inherit;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.btn-terminal-cta:hover {
+  background-color: rgba(255, 158, 59, 0.08);
+  box-shadow: 0 0 10px rgba(255, 158, 59, 0.15);
+}
+
+.status-pill {
+  border: 1px solid #1e3a24;
+  background-color: rgba(20, 40, 25, 0.4);
+  color: #81c784;
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #4caf50;
+  border-radius: 50%;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.contact-mini-card {
+  border: 1px solid #1c1c1f;
+  border-radius: 6px;
+  padding: 20px;
+  background-color: #121214;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease;
+}
+
+.contact-mini-card:hover {
+  border-color: var(--amber-gold); /* Glow individual channel boxes on focus */
+}
+
+.mini-icon-box {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #232327;
+  border-radius: 4px;
+  background-color: #17171a;
+  color: var(--amber-gold); /* Mini dashboard icons glow amber */
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.mini-card-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.mini-card-val, .mini-card-val-text {
+  font-size: 0.8rem;
+  color: var(--text-main);
+  text-decoration: none;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.mini-card-val:hover {
+  color: var(--amber-gold);
+  text-decoration: underline;
+}
+
+/* Interactive Terminal Prompt Input & History Elements */
+.cli-input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.cli-symbol {
+  color: var(--amber-gold);
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 0.95rem;
+}
+
+#cliPromptInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--amber-gold);
+  font-family: inherit;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.cli-history {
+  margin-top: 15px;
+}
+
+.cli-line {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.cli-output-err { color: #ff5f56; }
+.cli-output-ok { color: #81c784; }
+
+/* Vim Style Bottom Status Bar Strip */
+.status-bar {
+  background-color: #111113;
+  border-top: 1px solid var(--border-muted);
+  padding: 8px 16px;
+  display: flex;
+  font-size: 0.75rem;
+}
+
+.status-mode {
+  color: var(--text-muted);
+  margin-right: 25px;
+}
+
+.status-active-tab {
+  color: var(--amber-gold);
+}
+
+.status-right-tags {
+  margin-left: auto;
+  color: var(--text-muted);
+}
+
+/* Custom Scrollbar configuration */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #242428; border-radius: 3px; }
+
+@media (max-width: 900px) {
+  .contact-hero-card { flex-direction: column; gap: 15px; }
+  .contact-hero-right { order: -1; }
+  .contact-cards-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .dashboard-box.full-width { grid-column: span 1; }
+  .terminal-tabs { overflow-x: auto; }
+}
+
+@media (max-width: 500px) {
+  .contact-cards-grid { grid-template-columns: 1fr; }
+}
+
+/* Timeline Layout Architecture Rules */
+.timeline-container {
+  position: relative;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+/* The vertical branch tracking line */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  bottom: 5px;
+  width: 1px;
+  background-color: #3e3e44; /* Dim line */
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* The custom Git-log node circle point */
+.timeline-marker {
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--window-bg);
+  border: 2px solid var(--amber-gold);
+  z-index: 2;
+  box-shadow: 0 0 6px var(--amber-gold);
+}
+
+.timeline-content {
+  padding-left: 10px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.job-title {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.job-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.job-company {
+  font-size: 0.88rem;
+  margin-bottom: 15px;
+}
+
+.job-details-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.job-details-list li {
+  position: relative;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  padding-left: 18px;
+}
+
+/* The tiny triangle indicators matching your log screenshot exactly */
+.job-details-list li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 0.65rem;
+  color: var(--amber-gold);
+}

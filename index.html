@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sagar Portfolio | DevOps & Cloud Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="terminal-window">
+    <!-- Window Header -->
+    <div class="window-header">
+      <div class="window-buttons">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <div class="window-title">sagar@portfolio: ~</div>
+    </div>
+
+    <!-- Terminal Tabs Menu Navigation -->
+    <div class="terminal-tabs">
+      <button class="tab-btn active" onclick="switchSection('home')">~/home</button>
+      <button class="tab-btn" onclick="switchSection('about')">~/about</button>
+      <button class="tab-btn" onclick="switchSection('experience')">~/experience</button>
+      <button class="tab-btn" onclick="switchSection('skills')">~/skills</button>
+      <button class="tab-btn" onclick="switchSection('projects')">~/projects</button>
+      <button class="tab-btn" onclick="switchSection('academic')">~/academic</button>
+      <button class="tab-btn" onclick="switchSection('contact')">~/contact</button>
+    </div>
+
+    
+    <!-- Terminal Content Frame Area -->
+    <div class="terminal-body" id="terminalScrollArea">
+      
+      <!-- MAIN TAB CONTENT COVERS -->
+      <div id="content-sections">
+        
+        <!-- HOME SECTION -->
+        <div id="sec-home" class="portfolio-section active">
+          <div class="profile-card">
+            <div class="profile-header-row">
+              <div class="profile-avatar">
+                <img src="sagar.png" alt="Sagar Urade" class="avatar-img">
+              </div>
+              <div class="profile-title-block">
+                <div class="status-badge"><span class="status-dot"></span> Open to Internships & Roles</div>
+                <h1 class="main-name">Sagar <span>Urade</span></h1>
+                <p class="subtitle">Aspiring DevOps & Cloud Engineer • MSc Computer Application</p>
+              </div>
+            </div>
+            <p class="bio-text">
+DevOps & AWS Cloud enthusiast passionate about building scalable, automated, and reliable infrastructure. Skilled in Linux, Docker, Git, cloud technologies, and monitoring, with a strong focus on continuous learning and problem-solving.            </p>
+            <div class="meta-location">📍 Pune, Maharashtra, India • MIT Arts, Commerce and Science College</div>
+            <div class="action-buttons">
+              <a href="#projects" onclick="switchSection('projects')" class="btn-terminal">↓ Projects</a>
+              <a href="mailto:sagarurade50@gmail.com" class="btn-terminal">✉ Email</a>
+              <a href="https://www.linkedin.com/in/sagar-urade-bab503224/" target="_blank" class="btn-terminal">↗ LinkedIn</a>
+              <a href="https://github.com/SagarUrade" target="_blank" class="btn-terminal">📂 GitHub</a>
+            </div>
+          </div>
+
+          <!-- Bottom Grid Info -->
+          <div class="dashboard-grid">
+            <div class="dashboard-box">
+              <div class="box-label"># IMPACT</div>
+              <div class="stats-container">
+                <div class="stat-item"><h2>8+</h2><p>projects completed</p></div>
+                <div class="stat-item"><h2>5+</h2><p>devops tools</p></div>
+                <div class="stat-item"><h2>3+</h2><p>languages known</p></div>
+                <div class="stat-item"><h2>∞</h2><p>ready to learn 🚀</p></div>
+              </div>
+            </div>
+            <div class="dashboard-box">
+              <div class="box-label"># CORE SKILLS</div>
+              <div class="skills-capsules">
+                <span class="capsule">AWS</span>
+                <span class="capsule">Docker</span>
+                <span class="capsule">Terraform</span>
+                <span class="capsule">Ansible</span>
+                <span class="capsule">Git</span>
+                <span class="capsule">Grafana</span>
+                <span class="capsule">Jenkins</span>
+                <span class="capsule">Linux</span>
+                <span class="capsule">Nexus</span>
+              </div>
+              <a href="#skills" onclick="switchSection('skills')" class="view-more-link">View all skills →</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- ABOUT SECTION -->
+        <div id="sec-about" class="portfolio-section">
+          <div class="profile-card">
+            <div class="box-label" style="color: var(--amber-gold); font-weight: bold; margin-bottom: 20px;"># BIOGRAPHY</div>
+            
+            <p class="bio-text" style="font-size: 0.95rem; margin-bottom: 25px;">
+              I am <span style="color: var(--amber-gold); font-weight: bold;">Sagar Urade</span>, an MSc Computer Applications student with a profound interest in DevOps methodologies and Cloud Computing automation.
+            </p>
+
+            <div class="dashboard-grid">
+              <!-- Left Column: Core Focus Area -->
+              <div class="dashboard-box" style="background-color: #121214;">
+                <div class="box-label" style="color: var(--amber-gold);">[01 // cloud infrastructure]</div>
+                <p class="bio-text" style="font-size: 0.85rem; margin-bottom: 0;">
+                  Deeply comfortable handling core AWS primitives like <strong>EC2 instances</strong>, targeted <strong>VPC configurations</strong>, secure <strong>IAM boundary assignments</strong>, and managing static asset pipeline lifecycles.
+                </p>
+              </div>
+
+              <!-- Right Column: Engineering Practices -->
+              <div class="dashboard-box" style="background-color: #121214;">
+                <div class="box-label" style="color: var(--amber-gold);">[02 // devops & tools]</div>
+                <p class="bio-text" style="font-size: 0.85rem; margin-bottom: 0;">
+                  Specialized training includes configuring modern lifecycle tools like <strong>Git</strong>, <strong>Ansible</strong>, <strong>Terraform</strong>, <strong>Docker</strong>, <strong>Jenkins</strong>, and metrics tracking with the <strong>Grafana</strong> ecosystem.
+                </p>
+              </div>
+
+              <!-- Bottom Full Width Row: Vision -->
+              <div class="dashboard-box full-width" style="background-color: #121214;">
+                <div class="box-label" style="color: var(--amber-gold);">[03 // continuous growth]</div>
+                <p class="bio-text" style="font-size: 0.85rem; margin-bottom: 0;">
+                  Beyond academic configurations, I tracks modern open-source initiatives, follow core platform health patterns, and iteratively develop personal cloud orchestration projects to continuously learn and grow.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- EXPERIENCE SECTION -->
+        <div id="sec-experience" class="portfolio-section">
+          <!-- Command line prefix simulation -->
+          <div class="cli-command-prefix" style="margin-bottom: 25px;">
+            sagar@portfolio:<span style="color: var(--amber-gold);">~/experience</span>$ cat career_journey.log
+          </div>
+
+          <!-- Timeline wrapper container -->
+          <div class="timeline-container">
+            
+            <!-- Job Entry Block -->
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              
+              <div class="timeline-content">
+                <div class="job-header">
+                  <h3 class="job-title">DevOps Intern</h3>
+                  <span class="job-date">jan 2026 to Jul 2026</span>
+                </div>
+                
+                <div class="job-company">
+                  @ <span style="color: var(--amber-gold);">Brandspark Technologies</span> · Pune, Maharashtra
+                </div>
+
+                <ul class="job-details-list">
+                  <li>Set up Prometheus locally using Docker to collect and monitor system metrics from application services.
+
+</li>
+                  <li>Automated infrastructure provisioning using Terraform, reducing manual deployment effort and improving consistency.</li>
+                  <li>Configured Grafana as a visualization layer and connected it to Prometheus as a data source for real-time metric dashboards.</li>
+                  <li>Built Docker Compose-based setups to run monitoring tools and services consistently across local environments.
+
+</li>
+                  <li>Monitored multiple microservices and verified real-time metric consistency between Prometheus and Grafana dashboards.</li>
+                  <li>Configured service networking and container connectivity using Docker networks and host-based service access.</li>
+                  <li>Deployed and tested application services locally using Docker containers and custom environment-based runtime configurations</li>
+                  <li>Gained hands-on experience in observability by understanding metric collection, monitoring flow, and visualization workflows.</li>
+                  <li>Documented and executed DevOps workflows for service startup, shutdown, and monitoring across multiple environments.</li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+
+        <!-- SKILLS SECTION -->
+        <div id="sec-skills" class="portfolio-section">
+          <!-- Group 1: Cloud & AWS -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[cloud & aws]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">EC2</span>
+              <span class="skill-tag-node">VPC</span>
+              <span class="skill-tag-node">IAM</span>
+              <span class="skill-tag-node">S3</span>
+              <span class="skill-tag-node">ECS</span>
+              <span class="skill-tag-node">EKS</span>
+              <span class="skill-tag-node">ALB</span>
+              <span class="skill-tag-node">Auto Scaling</span>
+              <span class="skill-tag-node">CloudWatch</span>
+              <span class="skill-tag-node">SSM</span>
+            </div>
+          </div>
+
+          <!-- Group 2: Infrastructure As Code -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[infrastructure as code]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">Terraform</span>
+              <span class="skill-tag-node">Ansible</span>
+            </div>
+          </div>
+
+          <!-- Group 3: CI/CD & DevOps Tools -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[ci/cd & devops]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">Jenkins</span>
+              <span class="skill-tag-node">Git</span>
+              <span class="skill-tag-node">GitHub Ecosystem</span>
+            </div>
+          </div>
+
+          <!-- Group 4: Containers & Orchestration -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[containers & orchestration]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">Docker</span>
+              <span class="skill-tag-node">Amazon ECR</span>
+            </div>
+          </div>
+
+          <!-- Group 5: OS Platforms & Scripting -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[operating systems & scripting]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">Linux (Ubuntu)</span>
+              <span class="skill-tag-node">Bash</span>
+              <span class="skill-tag-node">Linux Shell</span>
+              <span class="skill-tag-node">Python (Basic)</span>
+            </div>
+          </div>
+
+          <!-- Group 6: networking & security -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[networking & security]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">IAM</span>
+              <span class="skill-tag-node">Security Groups</span>
+              <span class="skill-tag-node">NACLs</span>
+              <span class="skill-tag-node">VPC</span>
+              <span class="skill-tag-node">DNS</span>
+              <span class="skill-tag-node">TCP/IP</span>
+              <span class="skill-tag-node">VPN</span>
+            </div>
+          </div>
+
+          <!-- Group 7: Observability & Monitoring -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[observability & monitoring]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">Grafana</span>
+              <span class="skill-tag-node">AWS CloudWatch</span>
+              <span class="skill-tag-node">Prometheus</span>
+              <span class="skill-tag-node">CAdvisor</span>
+              <span class="skill-tag-node">Server Monitoring</span>
+              <span class="skill-tag-node">Alerting</span>
+            </div>
+          </div>
+
+          <!-- Group 8: additional expertise -->
+          <div class="skills-group-box">
+            <div class="skills-group-label">[additional expertise]</div>
+            <div class="skills-capsules-grid">
+              <span class="skill-tag-node">Documentation</span>
+              <span class="skill-tag-node">Root Cause Analysis</span>
+              <span class="skill-tag-node">Team Leadership</span>
+            </div>
+          </div>  
+        </div>
+
+
+        <!-- PROJECTS SECTION -->
+        <div id="sec-projects" class="portfolio-section">
+          <div class="dashboard-box full-width">
+            <div class="box-label"># PRODUCTION ARCHITECTURES</div>
+            
+            <!-- Project 01 -->
+            <div class="project-log-card animate-border">
+              <div class="project-log-header">
+                <span class="proj-id">project/01</span>
+                <h3>⚡ Production-Ready AWS & Docker 2-Tier Application </h3>
+                <a href="https://github.com/SagarUrade/aws-dockerized-flask-mysql-2tier-app" target="_blank" class="proj-github-link">github ↗</a>
+              </div>
+              <p class="proj-log-desc">
+                This project demonstrates a production-inspired two-tier architecture for deploying a containerized Flask application with MySQL on AWS. 
+                The application runs inside Docker containers on private EC2 instances behind an Application Load Balancer (ALB) and uses Amazon ECR, VPC Endpoints, CloudWatch, and AWS Systems Manager (SSM) for secure management and monitoring.
+              </p>
+              <div class="proj-log-tags">
+                <span class="tag-node-mini">AWS</span>
+                <span class="tag-node-mini">Docker</span>
+                <span class="tag-node-mini">Amazon EC2</span>
+                <span class="tag-node-mini">ALB</span>
+                <span class="tag-node-mini">ECR</span>
+                <span class="tag-node-mini">CloudWatch</span>
+                <span class="tag-node-mini">SSM</span>
+                <span class="tag-node-mini">VPC, Public & Private Subnets</span>
+                <span class="tag-node-mini">IAM Roles, Security Groups</span>
+                <span class="tag-node-mini">VPC Endpoints</span>
+                <span class="tag-node-mini">Ubuntu Linux</span>
+                <span class="tag-node-mini">Git & GitHub</span>
+              </div>
+            </div>
+
+            <!-- Project 02 -->
+            <div class="project-log-card">
+              <div class="project-log-header">
+                <span class="proj-id">project/02</span>
+                <h3>⚡ Dockerized Monitoring App with Grafana</h3>
+                <a href="https://github.com/SagarUrade/Dockerized-Monitoring-App-with-Grafana" target="_blank" class="proj-github-link">github ↗</a>
+              </div>
+              <p class="proj-log-desc">
+                DevOps project that demonstrates how to build, containerize, deploy, and monitor a web application using Docker, Prometheus, and Grafana.
+              </p>
+              <div class="proj-log-tags">
+                <span class="tag-node-mini">Linux - Server management</span>
+                <span class="tag-node-mini">Git & GitHub</span>
+                <span class="tag-node-mini">Docker</span>
+                <span class="tag-node-mini">Docker Compose</span>
+                <span class="tag-node-mini">Prometheus</span>
+                <span class="tag-node-mini">Grafana</span>
+              </div>
+            </div>
+
+            <!-- Project 03 -->
+            <div class="project-log-card">
+              <div class="project-log-header">
+                <span class="proj-id">project/03</span>
+                <h3>Building and Deploying a Containerized Web Application</h3>
+                <a href="https://github.com/SagarUrade/Building-and-Deploying-a-Containerized-Web-Application-Project#" target="_blank" class="proj-github-link">github ↗</a>
+              </div>
+              <p class="proj-log-desc">
+                Developed and deployed a containerized web application using Docker, Docker Compose, and Nginx, implementing container networking, persistent storage, and production-ready deployment practices.
+              </p>
+              <div class="proj-log-tags">
+                <span class="tag-node-mini">Linux (Ubuntu)</span>
+                <span class="tag-node-mini">Docker</span>
+                <span class="tag-node-mini">Docker Compose</span>
+                <span class="tag-node-mini">Nginx</span>
+                <span class="tag-node-mini">Git</span>
+                <span class="tag-node-mini">Docker Networking</span>
+                <span class="tag-node-mini">Docker Volumes</span>
+              </div>
+            </div>
+
+            <!-- Project 04 -->
+            <div class="project-log-card">
+              <div class="project-log-header">
+                <span class="proj-id">project/04</span>
+                <h3>⚡ AWS Infrastructure Provisioning with Terraform</h3>
+                <a href="https://github.com/SagarUrade/EC2_VPC_Subnet_Terraform_Project" target="_blank" class="proj-github-link">github ↗</a>
+              </div>
+              <p class="proj-log-desc">
+                Automated AWS infrastructure deployment using Terraform by provisioning networking components and EC2 instances through Infrastructure as Code (IaC), improving consistency and deployment efficiency.
+              </p>
+              <div class="proj-log-tags">
+                <span class="tag-node-mini">Terraform</span>
+                <span class="tag-node-mini">EC2</span>
+                <span class="tag-node-mini">VPC</span>
+                <span class="tag-node-mini">Linux (Ubuntu)</span>
+                <span class="tag-node-mini">Git & GitHub</span>
+                <span class="tag-node-mini">Infrastructure as Code (IaC)</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ACADEMIC SECTION -->
+        <div id="sec-academic" class="portfolio-section">
+          <div class="cli-command-prefix">sagar@portfolio:~/academic$ <span style="color: #fff;">cat education.log</span></div>
+          
+          <div class="box-label" style="margin-top: 20px;"># education</div>
+          
+          <!-- Degree 1 -->
+          <div class="academic-card">
+            <div class="academic-header">
+              <span class="edu-id">edu/01</span>
+              <h3>MSc — Computer Application</h3>
+              <span class="status-badge edu-status"><span class="status-dot"></span> In progress</span>
+            </div>
+            <p class="edu-sub">MIT Arts, Commerce and Science College • Pune, Maharashtra</p>
+            <div class="skills-capsules" style="margin-top: 10px; margin-bottom: 0;">
+              <span class="capsule">Computer Applications</span>
+              <span class="capsule">DevOps Core</span>
+            </div>
+          </div>
+
+          <!-- Degree 2 -->
+          <div class="academic-card">
+            <div class="academic-header">
+              <span class="edu-id">edu/02</span>
+              <h3>BCA</h3>
+              <span class="status-badge edu-status"><span class="status-dot"></span> Completed</span>
+            </div>
+            <p class="edu-sub">Sardar Patel Mahavidyalaya • Chandrapur, Maharashtra • <b>Graduated in 2024</b></p>
+            <div class="skills-capsules" style="margin-top: 10px; margin-bottom: 0;">
+              <span class="capsule">Computer Applications</span>
+              <span class="capsule">DevOps Core</span>
+            </div>
+          </div>
+
+          <div class="box-label" style="margin-top: 30px;"># certifications</div>
+
+          <!-- Cert 1 -->
+          <div class="academic-card">
+            <div class="academic-header">
+              <span class="edu-id">cert/01</span>
+              <h3>AWS Certified Cloud Practitioner</h3>
+            </div>
+            <p class="edu-sub">Validated foundational knowledge of AWS Cloud, including core AWS services, cloud concepts, security, pricing, billing, and the AWS Well-Architected Framework. Demonstrates a strong understanding of cloud computing fundamentals and AWS best practices.</p>
+            <div class="skills-capsules" style="margin-top: 10px; margin-bottom: 0;">
+              <span class="capsule">Amazon Web Services (AWS)</span>
+              <span class="capsule">Cloud Computing</span>
+              <span class="capsule">Cloud Security</span>
+              <span class="capsule">AWS IAM</span>
+              <span class="capsule">EC2</span>
+              <span class="capsule">S3</span>
+              <span class="capsule">VPC</span>
+            </div>
+          </div>
+
+          <!-- Download Resume Center Row -->
+          <div style="display: flex; justify-content: center; margin-top: 35px;">
+            <a href="#" class="btn-terminal" style="padding: 12px 30px; border-color: var(--amber-gold); color: var(--amber-gold);">↓ download resume</a>
+          </div>
+        </div>    
+
+
+        <!-- CONTACT SECTION -->
+        <div id="sec-contact" class="portfolio-section">
+          <div class="cli-command-prefix">sagar@portfolio:~/contact$ <span style="color: #fff;">cat contact.json</span></div>
+          
+          <!-- Top Main Banner Box -->
+          <div class="contact-hero-card">
+            <div class="contact-hero-left">
+              <div class="comment-line">// GET_IN_TOUCH</div>
+              <h2 class="contact-cta-title">Let's build something <span class="amber-text">reliable</span>.</h2>
+              <p class="contact-cta-desc">Open to DevOps, cloud, and infrastructure roles — full-time or internships.</p>
+              <a href="mailto:sagarurade50@gmail.com" class="btn-terminal-cta">✉ Email me</a>
+            </div>
+            <div class="contact-hero-right">
+              <span class="status-pill"><span class="pill-dot"></span> Available</span>
+            </div>
+          </div>
+
+          <!-- Bottom Details Grid Row -->
+          <div class="contact-cards-grid">
+            
+            <!-- Box 1: Email -->
+            <div class="contact-mini-card">
+              <div class="mini-icon-box">✉</div>
+              <div class="mini-card-label">EMAIL</div>
+              <a href="mailto:sagarurade50@gmail.com" class="mini-card-val">sagarurade50@gmail.com</a>
+            </div>
+
+            <!-- Box 2: LinkedIn -->
+            <div class="contact-mini-card">
+              <div class="mini-icon-box">in</div>
+              <div class="mini-card-label">LINKEDIN</div>
+              <a href="https://www.linkedin.com/in/sagar-urade-bab503224/" target="_blank" class="mini-card-val">linkedin.com/in/sagar-urade</a>
+            </div>
+
+            <!-- Box 3: GitHub -->
+            <div class="contact-mini-card">
+              <div class="mini-icon-box">📂</div>
+              <div class="mini-card-label">GITHUB</div>
+              <a href="https://github.com/SagarUrade" target="_blank" class="mini-card-val">github.com/SagarUrade</a>
+            </div>
+
+            <!-- Box 4: Location -->
+            <div class="contact-mini-card">
+              <div class="mini-icon-box">📍</div>
+              <div class="mini-card-label">LOCATION</div>
+              <div class="mini-card-val-text">Pune, Maharashtra</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- INTERACTIVE TERMINAL ENGINE BUFFER -->
+      <div class="cli-history" id="cliHistoryBuffer"></div>
+
+      <!-- Live Interactive Terminal Prompt Line -->
+      <div class="cli-input-wrapper">
+        <span class="cli-symbol">$</span>
+        <input type="text" id="cliPromptInput" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. 'help', 'skills', 'clear')..." />
+        <span class="cli-cursor-block"></span>
+      </div>
+
+    </div>
+
+    <!-- Vim style Status Line Footer -->
+    <div class="status-bar">
+      <div class="status-mode">NORMAL</div>
+      <div class="status-active-tab" id="footerActiveTab">home</div>
+      <div class="status-right-tags">AWS • Terraform • Docker • Linux</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
